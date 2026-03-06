@@ -1,0 +1,22 @@
+{
+  "slug": "emareaimusic",
+  "name": "Emare AI Music",
+  "github_repo": "emraresoftware/emareaimusic",
+  "branch": "main",
+  "dc": "local",
+  "server_host": null,
+  "server_ssh_port": 22,
+  "remote_path": "/opt/emareaimusic",
+  "stack": "python-gunicorn",
+  "port": 8301,
+  "domain": "",
+  "deploy_commands": [
+    "cd /opt/emareaimusic",
+    "git pull origin main",
+    "source venv/bin/activate && pip install -r requirements.txt -q",
+    "sudo systemctl restart emareaimusic"
+  ],
+  "restart_command": "systemctl status emareaimusic --no-pager",
+  "auto_deploy_on_push": false,
+  "health_check_url": null
+}
